@@ -1,75 +1,96 @@
-//Objects
-const user: { id: number; name: string; isSingle: boolean } = {
-  id: 1,
-  name: "Sothak",
-  isSingle: true,
-};
+//Variable Declarations
+//number
+let age: number = 25;
+
+//String
+let firsName: string = "Jonh";
+
+//Boolean
+let isActive: boolean = true;
 
 //Array
-const jobs: string[] = ["IT", "Cashier", "Teacher"];
+let number: number[] = [1, 2, 3, 4];
 
-const userAges: number[] = [20, 80, 45];
+//Tuple (fixed length and type)
+let person: [string, number] = ["Alice", 30];
 
-const myArray = ["Thak", 20, true];
-
-jobs[0] = "IT Manager";
-jobs.push("Web dev");
-
-myArray[0] = false;
-myArray;
-
-//Type any
-let a: any = "Hello";
-
-a = 20;
-a = true;
-a = {
-  id: 1,
-};
-
-const myArrays = [10, "A", true];
-
-myArrays.push();
-
-function adding(value: any): any {
-  return value + value;
-}
-console.log(adding(20));
-console.log(adding("20"));
-
-//tuple
-const data: [string, number] = ["Apple", 100];
-
-data.push();
-let allNumber: [number, number, number];
-allNumber = [10, 10, 10];
-
-let student: [id: number, name: string];
-
-student = [1, "Sothak"];
-
-//Function
-function calc(a: number, b: number): number {
-  return (a = b);
+//Function  with type parameter and return type
+function add(a: number, b: number) {
+  return a + b;
 }
 
-calc(20, 10);
-
-const greeting = (name: string): void => {
-  console.log(`Nice to see you${name}`);
-};
-greeting("Sothak");
-
-function totalSalary(salary: number[]) {
-  const total = salary.reduce((p, c) => {
-    return p + c;
-  });
-  return total;
+//Function return type (nop return value)
+function longMessage(message: string): void {
+  console.log(message);
 }
-const salary: number[] = [10, 30, 30];
-totalSalary([10, 20, 50]);
-console.log(totalSalary(salary));
 
-function func(): [number, string, boolean] {
-  return [10, "Hi", false];
+//Union Types
+let id: number | string;
+id = 123;
+id = "Sothak";
+
+//Type Aliases
+type StringOrNumber = string | number | boolean;
+let productId: StringOrNumber = 102;
+let UserId: StringOrNumber = "user123";
+let IsActive: StringOrNumber = true;
+
+//Interface
+interface User {
+  name: string;
+  age: number;
+  isActive: boolean;
 }
+
+let user:User ={
+  name:"Jane",
+  age:28,
+  isActive:true;
+}
+
+interface Book{
+  title:string;
+  author:string;
+  YearPublish:string;
+  
+}
+
+let b:Book={
+  title:"book1",
+  author:"thak",
+  YearPublish:"4/3/3"
+}
+
+//Optional Properties and Default Values
+//Optional properties
+interface Product{
+  id:number;
+  name:string;
+  description?:string; //Optional property
+
+}
+//functioN with default parameter
+
+function greet(name:string = "Guest"):void{
+  console.log(`Helloo ,${name}`);
+  }
+
+//Type Assertion
+let someValue:any = "This is a string";
+let strLength:number = (someValue as string).length;
+
+//Enum
+enum Direction{
+  Up,
+  Down,
+  Left,
+  Right,
+}
+let move:Direction = Direction.Up;
+
+//Literal Type
+let action:"start" | "stop";
+
+action = "start"; //valid
+action = "stop"; //valid
+
